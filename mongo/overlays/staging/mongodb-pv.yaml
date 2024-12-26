@@ -8,4 +8,4 @@ spec:
   capacity:
     storage: 2Gi
   hostPath:
-    path: /data/mongo
+    path: /data/mongo-staging
