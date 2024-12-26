@@ -3,9 +3,5 @@ kind: PersistentVolume
 metadata:
   name: mongo-data
 spec:
-  accessModes:
-    - ReadWriteOnce
-  capacity:
-    storage: 2Gi
   hostPath:
     path: /data/mongo-dev
