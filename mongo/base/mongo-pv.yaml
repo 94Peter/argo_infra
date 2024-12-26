@@ -7,6 +7,5 @@ spec:
     - ReadWriteOnce
   capacity:
     storage: 2Gi
-  template:
-    hostPath:
-      path: /data/mongo
+  hostPath:
+    path: /data/mongo
