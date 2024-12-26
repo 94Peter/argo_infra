@@ -6,4 +6,4 @@ resources:
 
 patches:
 - path: secret.yaml
-- path: pv.yaml
+- path: pvc.yaml
