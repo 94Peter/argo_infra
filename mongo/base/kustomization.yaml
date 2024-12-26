@@ -4,7 +4,6 @@ kind: Kustomization
 
 resources:
 - mongo-secret.yaml
-- mongo-pv.yaml
 - mongo-pvc.yaml
 - mongo-deployment.yaml
 - mongo-service.yaml
