@@ -6,4 +6,4 @@ resources:
 
 patches:
 - path: secret.yaml
-- path: mongodb-pv.yaml
+- path: pv.yaml
