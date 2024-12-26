@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: mongo-app-set
+spec:
+  generators:
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/94peter/argo_infra.git
+              revision: HEAD
+              directories:
+                - path: mongo/overlays/*
+  template: # used to generate Argo CD Application resources
+    metadata:
+      name: 'mongo'
+    spec:
+      project: mongo
+      source:
+        repoURL: https://github.com/94peter/argo_infra.git
+        targetRevision: HEAD
+        path: '{{.path.path}}' # myapp/overlays/dev, myapp/overlays/prod
+      destination:
+        server: https://kubernetes.default.svc # https://dev.cluster.server, https://prod.cluster.server
+        namespace: 'mongo-{{path.basename}}'
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
